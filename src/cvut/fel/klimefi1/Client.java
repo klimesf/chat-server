@@ -6,7 +6,6 @@
 
 package cvut.fel.klimefi1;
 
-import cvut.fel.klimefi1.*;
 import cvut.fel.klimefi1.actions.*;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -52,9 +51,9 @@ public class Client implements Runnable {
      * @param message
      * @return 
      */
-    public boolean send( String sender, String message ) {
+    public boolean send( String room, String sender, String message ) {
         try {
-            output.writeBytes("[" + sender + "] : " + message + "\n");
+            output.writeBytes("MSG " + room + " " + sender + " " + message + "\n");
             return true;
         } catch (IOException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
@@ -120,7 +119,7 @@ public class Client implements Runnable {
      */
     public void roomCreated( boolean success, String name ) throws IOException {
         if(success) {
-            output.writeBytes("STATUS Created room " + name + "\n");
+            output.writeBytes("STATUS OK\n");
         } else {
             output.writeBytes("ERR Room " + name + " already exists\n");
         }

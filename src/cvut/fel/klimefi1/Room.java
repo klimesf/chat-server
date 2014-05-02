@@ -81,7 +81,7 @@ public class Room {
         System.out.println( String.format( "[%s] %s: %s", name, sender.getNickname(), message ) );
         
         for(Client client : clients) {
-            client.send(sender.getNickname(), message);
+            client.send(name, sender.getNickname(), message);
         }
     }
 
