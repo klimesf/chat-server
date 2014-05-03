@@ -14,8 +14,14 @@ import cvut.fel.klimefi1.exceptions.*;
  */
 public class SendMessage extends Action {
 
+    /**
+     * Identifier of the room that the message belongs to.
+     */
     private final String roomId;
     
+    /**
+     * Text of the message.
+     */
     private final String text;
     
     /**
@@ -32,7 +38,7 @@ public class SendMessage extends Action {
     }
 
     /**
-     * Executes the action
+     * Executes the action.
      */
     @Override
     public void execute() {

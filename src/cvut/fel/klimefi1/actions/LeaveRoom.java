@@ -14,6 +14,9 @@ import cvut.fel.klimefi1.exceptions.NoSuchRoomException;
  */
 public class LeaveRoom extends Action {
     
+    /**
+     * Name of the room to be left.
+     */
     private final String room;
 
     /**
@@ -28,7 +31,7 @@ public class LeaveRoom extends Action {
     }
 
     /**
-     * Executes the action
+     * Executes the action.
      */
     @Override
     public void execute() {

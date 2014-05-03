@@ -6,46 +6,57 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Main thread of the server
- * Handles all the actions
+ * Main thread of the server. Handles all the actions, which are stored in a
+ * queue.
  *
  * @author Karel Cemus
  */
 public class Worker implements Runnable {
 
+    /**
+     * Queue of the actions.
+     */
     private static final Queue<Action> actions = new LinkedList<>();
 
-    public static void addAction( Action action ) {
-        synchronized ( actions ) {
-            actions.add( action );
+    /**
+     * Adds action to the Worker queue.
+     * 
+     * @param action to be added and executed
+     */
+    public static void addAction(Action action) {
+        synchronized (actions) {
+            actions.add(action);
             actions.notify();
         }
     }
 
+    /**
+     * Runs the thread. Implementation of Runnable interface.
+     */
     @Override
     public void run() {
         try {
-            while ( true ) {
-
-                if ( Thread.currentThread().isInterrupted() ) break;
+            while (true) {
+                if (Thread.currentThread().isInterrupted()) {
+                    break;
+                }
 
                 Action action;
-
-                synchronized ( actions ) {
-
-                    // pockej dokud neni pripravena nejaka akce
-                    while ( actions.isEmpty() ) actions.wait();
-                    // ziskej akci ke zpracovani
+                synchronized (actions) {
+                    // wait for new action
+                    while (actions.isEmpty()) {
+                        actions.wait();
+                    }
+                    // retrieve the action
                     action = actions.poll();
                 }
 
-                // zpracuj akci mimo synchronized, uz nepracujeme v chranenem bloku
                 action.execute();
             }
-        } catch ( InterruptedException e ) {
-            System.out.println( "Worker prerusen." );
+        } catch (InterruptedException e) {
+            System.out.println("Worker prerusen.");
         } finally {
-            System.out.println( "Worker se ukoncuje." );
+            System.out.println("Worker se ukoncuje.");
         }
     }
 }

@@ -13,6 +13,9 @@ import cvut.fel.klimefi1.*;
  */
 public class CreateRoom extends Action {
 
+    /**
+     * Name of the room to be created.
+     */
     private final String name;
 
     /**
@@ -27,7 +30,7 @@ public class CreateRoom extends Action {
     }
     
     /**
-     * Executes the action
+     * Executes the action.
      */
     @Override
     public void execute() {

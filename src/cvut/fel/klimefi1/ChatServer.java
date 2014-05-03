@@ -21,6 +21,8 @@ import java.util.Iterator;
 public class ChatServer {
     
     /**
+     * Main method of the server.
+     * 
      * @param args the command line arguments
      */
     public static void main(String[] args) {

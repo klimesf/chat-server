@@ -27,6 +27,9 @@ public class EnterRoom extends Action {
         this.room = room;
     }
 
+    /**
+     * Executes the action.
+     */
     @Override
     public void execute() {
         try {

@@ -23,7 +23,7 @@ public class ListRooms extends Action {
     }
 
     /**
-     * Executes the action
+     * Executes the action.
      */
     @Override
     public void execute() {

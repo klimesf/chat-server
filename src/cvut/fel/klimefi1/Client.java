@@ -17,14 +17,29 @@ import java.util.logging.Logger;
  */
 public class Client implements Runnable {
 
+    /**
+     * Nickname of the client.
+     */
     private String nickname;
 
+    /**
+     * Socket of the client.
+     */
     private final Socket socket;
 
+    /**
+     * Input scanner.
+     */
     private final Scanner input;
 
+    /**
+     * Output stream to the client.
+     */
     private final DataOutputStream output;
 
+    /**
+     * Rooms which the client entered.
+     */
     private final Set<Room> rooms = new HashSet<>();
 
     /**
@@ -148,6 +163,7 @@ public class Client implements Runnable {
 
     /**
      * Disconnects from the server
+     * 
      * @throws IOException
      */
     public void disconnect() throws IOException {
@@ -158,6 +174,16 @@ public class Client implements Runnable {
         System.out.println("Client " + nickname + " left");
     }
 
+    /**
+     * Runs the Client.
+     * Runnable interface method implementation.
+     * 
+     * <p>
+     * Reads input from the client and creates corresponding Action instances.
+     * First command from the client must be NICK. Supported commands are:
+     * NICK, SEND, ENTER, LEAVE, CREATE and BYE.
+     * </p>
+     */
     @Override
     public void run() {
         // Init
@@ -232,7 +258,8 @@ public class Client implements Runnable {
     }
 
     /**
-     * Returns nickname of the client
+     * Returns the nickname of the client.
+     * 
      * @return nickname
      */
     public String getNickname() {

@@ -7,6 +7,7 @@ import java.util.*;
  * Class representing a single room
  * 
  * @author Karel Cemus
+ * @author Filip Klimes <klimefi1@fel.cvut.cz>
  */
 public class Room {
 
