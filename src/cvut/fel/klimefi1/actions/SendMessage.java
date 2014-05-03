@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package cvut.fel.klimefi1.actions;
 
 import java.io.IOException;
@@ -13,8 +7,10 @@ import cvut.fel.klimefi1.*;
 import cvut.fel.klimefi1.exceptions.*;
 
 /**
- *
- * @author filip
+ * Action - Send Message
+ * Invoked if client sends a message to a given room
+ * 
+ * @author Filip Klimes <klimefi1@fel.cvut.cz>
  */
 public class SendMessage extends Action {
 
@@ -23,10 +19,11 @@ public class SendMessage extends Action {
     private final String text;
     
     /**
-     *
-     * @param sender
-     * @param room
-     * @param text
+     * Constructor
+     * 
+     * @param sender client
+     * @param room name of the room
+     * @param text message body
      */
     public SendMessage(Client sender, String room, String text) {
         super(sender);
@@ -34,6 +31,9 @@ public class SendMessage extends Action {
         this.text = text;
     }
 
+    /**
+     * Executes the action
+     */
     @Override
     public void execute() {
         try {

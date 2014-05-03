@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package cvut.fel.klimefi1.actions;
 
 import java.io.IOException;
@@ -12,15 +6,25 @@ import java.util.logging.Logger;
 import cvut.fel.klimefi1.*;
 
 /**
- *
- * @author filip
+ * Action - Disconnect
+ * Invoked if client disconnects from the server
+ * 
+ * @author Filip Klimes <klimefi1@fel.cvut.cz>
  */
 public class DisconnectAction extends Action {
 
+    /**
+     * Constructor
+     * 
+     * @param sender client
+     */
     public DisconnectAction(Client sender) {
         super(sender);
     }
 
+    /**
+     * Executes the action
+     */
     @Override
     public void execute() {
         try {

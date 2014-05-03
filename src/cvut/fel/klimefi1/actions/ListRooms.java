@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package cvut.fel.klimefi1.actions;
 
 import java.io.IOException;
@@ -12,19 +6,25 @@ import java.util.logging.Logger;
 import cvut.fel.klimefi1.*;
 
 /**
- *
- * @author filip
+ * Action - List Rooms
+ * Invoked if client requests a list of rooms
+ * 
+ * @author Filip Klimes <klimefi1@fel.cvut.cz>
  */
 public class ListRooms extends Action {
 
     /**
-     *
-     * @param sender
+     * Constructor
+     * 
+     * @param sender client
      */
     public ListRooms(Client sender) {
         super(sender);
     }
 
+    /**
+     * Executes the action
+     */
     @Override
     public void execute() {
         StringBuilder sb = new StringBuilder();

@@ -13,7 +13,7 @@ import java.util.Queue;
  */
 public class Worker implements Runnable {
 
-    private static final Queue<Action> actions = new LinkedList<Action>();
+    private static final Queue<Action> actions = new LinkedList<>();
 
     public static void addAction( Action action ) {
         synchronized ( actions ) {

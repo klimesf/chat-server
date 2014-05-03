@@ -12,15 +12,25 @@ import java.util.logging.Logger;
 import cvut.fel.klimefi1.*;
 
 /**
- *
- * @author filip
+ * Action - Leave Room
+ * Invoked if client sends an unknown request
+ * 
+ * @author Filip Klimes <klimefi1@fel.cvut.cz>
  */
 public class UnknownAction extends Action {
 
+    /**
+     * Constructor
+     * 
+     * @param sender client
+     */
     public UnknownAction(Client sender) {
         super(sender);
     }
 
+    /**
+     * Executes the action
+     */
     @Override
     public void execute() {
         try {
