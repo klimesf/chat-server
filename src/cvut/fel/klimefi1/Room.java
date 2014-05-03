@@ -1,7 +1,7 @@
 package cvut.fel.klimefi1;
 
-import java.util.*;
 import cvut.fel.klimefi1.exceptions.NoSuchRoomException;
+import java.util.*;
 
 /**
  * Class representing a single room
@@ -51,8 +51,8 @@ public class Room {
     /**
      * Returns room with the given name
      * @param name
-     * @return 
-     * @throws klimefi1.server.exceptions.NoSuchRoomException If no room with such name exists
+     * @return
+     * @throws cvut.fel.klimefi1.exceptions.NoSuchRoomException
      */
     public static Room get( String name ) throws NoSuchRoomException {
         if(!rooms.containsKey(name)) {

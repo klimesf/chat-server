@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import cvut.fel.klimefi1.*;
-import cvut.fel.klimefi1.exceptions.*;
+import cvut.fel.klimefi1.exceptions.NoSuchRoomException;
 
 /**
  * Action - Leave Room
@@ -32,16 +32,18 @@ public class LeaveRoom extends Action {
      */
     @Override
     public void execute() {
+        Room roomInstance;
         try {
-            try {
-                Room roomInstance = Room.get(room);
-                sender.leaveRoom(roomInstance);
+            roomInstance = Room.get(room);
+        } catch (NoSuchRoomException ex) {
+            roomInstance = null;
+        }
+        try {
+            if(roomInstance != null && roomInstance.contains(sender)) {
                 roomInstance.leave(sender);
                 System.out.printf("[%s] %s left\n", room, sender.getNickname());
-            } catch (NoSuchRoomException ex) {
-                sender.leaveRoom(null);
-                Logger.getLogger(LeaveRoom.class.getName()).log(Level.SEVERE, null, ex);
             }
+            sender.leaveRoom(roomInstance);
         } catch (IOException ex) {
             Logger.getLogger(LeaveRoom.class.getName()).log(Level.SEVERE, null, ex);
         }
